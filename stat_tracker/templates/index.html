@@ -18,7 +18,7 @@
   <h1>Activity Tracker</h1>
 </header>
 
-<div class="registration">
+<script type='text/template' id="#registration">
 	<form class="registration-form">
 		<label>Username:</label><input type="textbox" class="username">
 	    <label>Password:</label><input type="textbox" class="password">
@@ -26,53 +26,52 @@
 
 		<button type="submit" class="registration-button">Register</button>
 	</form>
-</div>
+</script>
 
-<div class="login">
+<script type='text/template' id="#login">
 	<form class="login-form">
 		<label>Username:</label><input type="textbox" class="username">
 	    <label>Password:</label><input type="textbox" class="password">
 
 		<button type="submit" class="login-button">Login</button>
 	</form>
-</div>
+</script>
 
-<!--GET	/activities-->
-<div class="all-activities">
-    <!--templates-->
-	<% m.forEach(function(act,i) {  %>
-        <ul class = "activity-info">
-          <li class = "activity"> <a href = "#_______/<%- i %>"><%- act.activity %> </a> </li>
-          <li class = "description"><%- act.description %></li>
-          <li class = "date"><%- act.date %></li>
-          <li class = "stat"><%- act.stat %></li>
-        </ul>
-    <% }) %>
-			<!--view, edit, delete buttons-->
-			<i class="fa fa-eye"></i> <!--Show-->
-			<i class="fa fa-pencil"></i> <!--Edit-->
-			<i class="fa fa-trash-o"></i> <!--Delete-->
-</div>
-
-<!--POST	/activities-->
-<div class="new-activity">
+<script type='text/template' id="#activities-list">
+	<!--POST	/activities-->
     <form class="new-activity-form">
 		<label>Activity:</label><input type="textbox" class="activity">
 	    <label>Description:</label><input type="textbox" class="description">
 
 		<button type="submit" class="new-activity-button">Add Activity!</button>
 	</form>
-</div>
 
+	<!--GET	/activities-->
+	<ul class="activities-list">
+	    <!--templates-->
+		<% m.forEach(function(act,i) {  %>
+	          <li class = "activity"> <a href = "#_______/<%- i %>"><%- act.activity %> </a> </li>
+	          <li class = "description"><%- act.description %></li>
+	          <li class = "date"><%- act.date %></li>
+	          <li class = "stat"><%- act.stat %></li>
+	    <% }) %>
+				<!--view, edit, delete buttons-->
+				<i class="fa fa-eye"></i> <!--Show-->
+				<i class="fa fa-pencil"></i> <!--Edit-->
+				<i class="fa fa-trash-o"></i> <!--Delete-->
+	</ul>
+</script>
+
+
+<script type='text/template' id="#activity-detail">
 <!--GET	/activities/{id}-->
-<div class="show-single-activity">
     <h4>Activity: <!--template for activity--> </h4>
     <h5>Description: <!--template for description--> </h5>
     <h6>My Successes: <!--template for tracking stats --></h6>
-
-</div>
+</script>
   
 <!--PUT	/activities/{id} -->  <!--doesn't allow to change tracked data-->
+<script type='text/template' id="#edit-activity">
 <div class="edit-activity"> 
     <form class="edit-activity-form"> <!--should this class stay "new-activity-form"?-->
 		<label>Activity:</label><input type="textbox" class="activity">
@@ -80,16 +79,7 @@
 
 		<button type="submit" class="edit-button">Save My Changes</button>
 	</form>
-</div>
-
-<!-- DELETE	/activities/{id}-->  <!--deletes activity and all tracked data-->
-<div class="delete-activity">
-    <h4>Activity: <!--template for activity--> </h4>
-    <h5>Description: <!--template for description--> </h5>
-    <h6>My Successes: <!--template for tracking stats --></h6>
-  
-  	<button type="button" class="delete-activity-button">X</button>
-</div>
+</script>
 
 <!--POST or PUT	/activities/{id}/stats-->
 <div class="add-stat">
