@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+class Activity(models.Model):
+    pass
+
+class Stat(models.Model):
+    pass
