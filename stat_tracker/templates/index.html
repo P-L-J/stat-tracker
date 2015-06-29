@@ -13,7 +13,85 @@
 
 <body>
 
-  <h1>Hello world!</h1>
+<header>
+  <h1>Activity Tracker</h1>
+</header>
+
+<div class="registration">
+	<form class="registration-form">
+		<label>Username:</label><input type="textbox" class="username">
+	    <label>Password:</label><input type="textbox" class="password">
+    	<label>Confirm Password:</label><input type="textbox" class="confirm-password">
+
+		<button type="submit" class="registration-button">Register</button>
+	</form>
+</div>
+
+<div class="login">
+	<form class="login-form">
+		<label>Username:</label><input type="textbox" class="username">
+	    <label>Password:</label><input type="textbox" class="password">
+
+		<button type="submit" class="login-button">Login</button>
+	</form>
+</div>
+
+<!--GET	/activities-->
+<div class="all-activities">
+    <!--templates-->
+	<!--view, edit, delete buttons-->
+</div>
+
+<!--POST	/activities-->
+<div class="new-activity">
+    <form class="new-activity-form">
+		<label>Activity:</label><input type="textbox" class="activity">
+	    <label>Description:</label><input type="textbox" class="description">
+
+		<button type="submit" class="new-activity-button">Add Activity!</button>
+	</form>
+</div>
+
+<!--GET	/activities/{id}-->
+<div class="show-single-activity">
+    <h4>Activity: <!--template for activity--> </h4>
+    <h5>Description: <!--template for description--> </h5>
+    <h6>My Successes: <!--template for tracking stats --></h6>
+
+</div>
+  
+
+<!--PUT	/activities/{id} -->  <!--doesn't allow to change tracked data-->
+<div class="edit-activity"> 
+    <form class="edit-activity-form"> <!--should this class stay "new-activity-form"-->
+		<label>Activity:</label><input type="textbox" class="activity">
+	    <label>Description:</label><input type="textbox" class="description">
+
+		<button type="submit" class="edit-button">Save My Changes</button>
+	</form>
+</div>
+
+<!-- DELETE	/activities/{id}-->  <!--deletes activity and all tracked data-->
+
+<div class="delete-activity">
+    <h4>Activity: <!--template for activity--> </h4>
+    <h5>Description: <!--template for description--> </h5>
+    <h6>My Successes: <!--template for tracking stats --></h6>
+  
+  	<button type="button" class="delete-activity-button">X</button>
+</div>
+
+<!--POST or PUT	/activities/{id}/stats-->
+<div class="add-stat">
+    <form class="add-stat-form">
+		<!-- here: dropdown bar of activities already created? -->
+		<label>Date:</label><!--date picker here? --><input type="textbox" class="date">
+		<!--what fields here? (distance, # steps, calories, ??)	-->
+
+		<button type="submit" class="add-stat-button">Add It!</button>
+	</form>
+  
+</div>
 
   <script src="{% static 'js/main.js' %}"></script>
 </body>
