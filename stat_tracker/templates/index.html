@@ -9,6 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+  <link rel="stylesheet" href="{% static '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' %}">
 </head>
 
 <body>
@@ -39,7 +40,18 @@
 <!--GET	/activities-->
 <div class="all-activities">
     <!--templates-->
-	<!--view, edit, delete buttons-->
+	<% m.forEach(function(act,i) {  %>
+        <ul class = "activity-info">
+          <li class = "activity"> <a href = "#_______/<%- i %>"><%- act.activity %> </a> </li>
+          <li class = "description"><%- act.description %></li>
+          <li class = "date"><%- act.date %></li>
+          <li class = "stat"><%- act.stat %></li>
+        </ul>
+    <% }) %>
+			<!--view, edit, delete buttons-->
+			<i class="fa fa-eye"></i> <!--Show-->
+			<i class="fa fa-pencil"></i> <!--Edit-->
+			<i class="fa fa-trash-o"></i> <!--Delete-->
 </div>
 
 <!--POST	/activities-->
@@ -60,10 +72,9 @@
 
 </div>
   
-
 <!--PUT	/activities/{id} -->  <!--doesn't allow to change tracked data-->
 <div class="edit-activity"> 
-    <form class="edit-activity-form"> <!--should this class stay "new-activity-form"-->
+    <form class="edit-activity-form"> <!--should this class stay "new-activity-form"?-->
 		<label>Activity:</label><input type="textbox" class="activity">
 	    <label>Description:</label><input type="textbox" class="description">
 
@@ -72,7 +83,6 @@
 </div>
 
 <!-- DELETE	/activities/{id}-->  <!--deletes activity and all tracked data-->
-
 <div class="delete-activity">
     <h4>Activity: <!--template for activity--> </h4>
     <h5>Description: <!--template for description--> </h5>
