@@ -1,3 +1,5 @@
+function svgGraph(id){
+
 var svg = d3.select("svg");
 
 var g = svg.append("g");
@@ -23,12 +25,14 @@ g.call(y_axis);
 var x_axis = d3.svg.axis().scale(x).orient("bottom").ticks(5).tickFormat(d3.time.format("%m/%Y"));
 gx.call(x_axis);
 
-d3.json("stats.json", function(data) {
+d3.json('/api/activities/' + id, function(data) {
   g.selectAll("circle")
-      .data(data["results"])
+      .data(data["stat_set"])
     .enter().append("circle")
       .attr("cx", function(d) {return x(getDate(d["date"]));} )
       .attr("cy", function(d) {return y(d["value"]);} )
       .attr("r", 10);
 
 });
+
+}

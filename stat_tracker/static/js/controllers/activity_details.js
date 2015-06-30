@@ -8,6 +8,7 @@ app.router.route('activities/:id', function (id) {
     success: function(data) {
       console.log(data);
       app.show('activity-details', data);
+      svgGraph(id);
     }
   });
 
