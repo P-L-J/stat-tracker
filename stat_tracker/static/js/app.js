@@ -7,6 +7,10 @@ var app = {
 
   $('.main-content').html(result);
   },
+  
+  // $(".date").pickadate({
+  //                 format: "mm/dd/yyyy"
+  //           }),
 
   goto: function (url) {
   Backbone.history.navigate(url, { trigger: true });
