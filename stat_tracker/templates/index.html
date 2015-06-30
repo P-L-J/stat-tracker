@@ -12,6 +12,9 @@
   <link rel="stylesheet" href="{% static 'css/main.css' %}" />
   <link href="{% static 'http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' %}">
   <link rel="stylesheet" href="{% static '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' %}">
+  <!--<link rel= "stylesheet" href="{% static 'js/bower_components/pickadate.js-3.5.6/lib/compressed/themes/default.css' %}">
+  <link rel="stylesheet" href="{% static 'js/bower_components/pickadate.js-3.5.6/lib/compressed/themes/default.date.css' %}">-->
+
 </head>
 
 <body>
@@ -81,12 +84,9 @@
   	<ul class="activities-list">
       <% m.results.forEach(function(activity) { %>
       <!--templates-->
-      <li class="activity"><a href="#activities/<%- activity.id %>"><%- activity.title %></a></li>
-			<!--view, edit, delete buttons-->
-			 <!--Show-->
-			<a href="#activities/<%- activity.id %>/edit"><i class="fa fa-pencil"></i></a> <!--Edit-->
-			<i class="fa fa-trash-o"></i> <!--Delete-->
-
+        <a href="#activities/<%- activity.id %>/edit"><i class="fa fa-pencil"></i></a> <!--Edit-->
+        <i class="fa fa-trash-o"></i> <!--Delete-->
+        <li class="activity"><a href="#activities/<%- activity.id %>"><%- activity.title %></a></li>
       <% }) %>
   	</ul>
 
@@ -122,23 +122,23 @@
 
     <!--PUT	/activities/{id} -->  <!--doesn't allow to change tracked data-->
   <script type='text/template' id="activity-edit">
-
+  <div class="container">
     <form class="edit-activity-form"> <!--should this class stay "new-activity-form"?-->
 
-  		<label>Activity:</label><input type="textbox" class="activity">
-  	  <label>Description:</label><input type="textbox" class="description">
+  		<label>Edit Activity:</label><input type="textbox" class="activity">
 
   		<button type="submit" class="edit-button">Save My Changes</button>
 
   	</form>
-
+  </div>
     <!--POST or PUT	/activities/{id}/stats-->
 
-    <div class="add-stat">
+    <div class="container">
 
       <form class="add-stat-form">
         <!-- here: dropdown bar of activities already created? -->
-        <label>Date:</label>date picker here? <input type="textbox" class="date">
+        <label>Date:</label>
+        <!--date picker here?--> <input type="textbox" class="date">
         <!--what fields here? (distance, # steps, calories, ??)	-->
 
         <button type="submit" class="add-stat-button">Add It!</button>
@@ -152,6 +152,8 @@
   <script src="{% static 'js/bower_components/jquery/dist/jquery.min.js' %}"></script>
   <script src="{% static 'js/bower_components/underscore/underscore-min.js' %}"></script>
   <script src="{% static 'js/bower_components/backbone/backbone-min.js' %}"></script>
+  <!--<script src="js/pickadate.js-3.5.6/lib/picker.js"></script>
+  <script src="js/pickadate.js-3.5.6/lib/picker.date.js"></script>-->
 
   <script src="{% static 'js/main.js' %}"></script>
   <script src="{% static 'js/app.js' %}"></script>
