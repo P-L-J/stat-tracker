@@ -1,3 +1,70 @@
-h1 {
-  color: red;
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+header {
+  background-color: #524D6E;
+  color: #F5F7F8;
+  font-size: 1.1em;
+  width: 100%;
+  height: 2.5em;
+}
+
+.page-title {
+  text-align: center;
+  position: relative;
+  top: 0.7em;
+}
+
+.container {
+  width: 20%;
+  height: 100%;
+  margin: 4em auto;
+  padding: 1.5em 2em;
+  background-color: #EEE; 
+  color: #524D6E;
+  border: 0.1em solid #524D6E;
+}
+
+.container-title {
+  font-size: 0.9em;
+  text-align: center;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+  border-bottom: 0.07em solid #524D6E;
+}
+
+label {
+  display: block;
+  font-size: 0.7em;
+  padding: 0.5em 0;
+}
+
+input {
+  display: block;
+  font-size: 0.6em;
+  width: 97%;
+  border: 0.1em solid #524D6E;
+}
+
+input:focus, button:focus {
+  outline-color: #C6ACA4;
+  outline-size: 1px;
+}
+
+button {
+  display: block;
+  background-color: #F5F7F8;
+  color: #524D6E; 
+  border: 0.15em solid #524D6E;
+  border-radius: 0;
+  padding: 1em;
+  margin: 2em auto 0;
+  text-align: center;
+}
+
+button:hover {
+  background-color: #524D6E;
+  color: #F5F7F8;
+}
 }
