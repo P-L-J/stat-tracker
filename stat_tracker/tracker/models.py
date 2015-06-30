@@ -9,6 +9,7 @@ Activity:
 Stat:
     id
     date
+    activity FK
     value
 """
 
