@@ -4,106 +4,147 @@
 
 <head>
   <meta charset="utf-8">
-  <title>index.html</title>
+  <title>Stat-Tracker</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="{% static 'css/reset.css' %}" />
-<link rel="stylesheet" href="{% static 'css/main.css' %}" />
-<link href="{% static 'http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' %}">
-<link rel="stylesheet" href="{% static '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+  <link href="{% static 'http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' %}">
+  <link rel="stylesheet" href="{% static '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' %}">
 </head>
 
 <body>
 
-<header>
-  <h1 class="page-title">Activity Tracker</h1>
-</header>
+  <header>
+    <h1 class="page-title">Activity Tracker</h1>
+  </header>
 
-<main class="main-content"></main>
+  <main class="main-content"></main>
 
-<script type='text/template' id="registration">
-	<div class="container">
-		<h2 class="container-title">Registration</h2>
-		<form class="registration-form">
-			<label>Username:</label><input type="textbox" class="username">
-		    <label>Password:</label><input type="textbox" class="password">
-	    	<label>Confirm Password:</label><input type="textbox" class="confirm-password">
-	
-			<button type="submit" class="registration-button">Register</button>
-		</form>
-	</div>
-</script>
+  <!-- Registration Template -->
 
-<script type='text/template' id="login">
-	<div class="container">
-		<form class="login-form">
-			<label>Username:</label><input type="textbox" class="username">
-		    <label>Password:</label><input type="textbox" class="password">
-	
-			<button type="submit" class="login-button">Login</button>
-		</form>
-	</div>
-</script>
+  <script type='text/template' id="registration">
+  	<div class="container">
+  		<h2 class="container-title">Registration</h2>
+  		<form class="registration-form">
 
-<script type='text/template' id="activities-list">
-	<!--POST	/activities-->
+  			<label>Username:</label><input type="textbox" class="username">
+  		  <label>Password:</label><input type="textbox" class="password">
+  	  	<label>Confirm Password:</label><input type="textbox" class="confirm-password">
+
+  			<button type="submit" class="registration-button">Register</button>
+
+  		</form>
+  	</div>
+  </script>
+
+
+  <!-- Login Template -->
+
+  <script type='text/template' id="login">
+  	<div class="container">
+  		<form class="login-form">
+
+  			<label>Username:</label><input type="textbox" class="username">
+  		  <label>Password:</label><input type="textbox" class="password">
+
+  			<button type="submit" class="login-button">Login</button>
+
+  		</form>
+  	</div>
+  </script>
+
+
+  <!-- Activities List Template -->
+
+  <script type='text/template' id="activities-list">
+  	<!--POST	/activities-->
     <div class="container">
-		<form class="new-activity-form">
-			<label>Activity:</label><input type="textbox" class="activity">
-		    <label>Description:</label><input type="textbox" class="description">
-	
-			<button type="submit" class="new-activity-button">Add Activity!</button>
-		</form>
-	</div>
-	
-	<!--GET	/activities-->
-	<ul class="activities-list">
-	    <!--templates-->
-		<% m.forEach(function(act,i) {  %>
-	          <li class = "activity"> <a href = "#_______/<%- i %>"><%- act.activity %> </a> </li>
-	          <li class = "description"><%- act.description %></li>
-	          <li class = "date"><%- act.date %></li>
-	          <li class = "stat"><%- act.stat %></li>
-	    <% }) %>
-				<!--view, edit, delete buttons-->
-				<i class="fa fa-eye"></i> <!--Show-->
-				<i class="fa fa-pencil"></i> <!--Edit-->
-				<i class="fa fa-trash-o"></i> <!--Delete-->
-	</ul>
-</script>
+
+  		<form class="new-activity-form">
+
+  			<label>Activity:</label><input type="textbox" class="activity">
+  		  <label>Description:</label><input type="textbox" class="description">
+
+  			<button type="submit" class="new-activity-button">Add Activity!</button>
+
+  		</form>
+
+  	</div>
+
+  	<!--GET	/activities-->
+  	<ul class="activities-list">
+      <!--templates-->
+      <li class="activity"></li>
+      <li class="description"></li>
+      <li class="date"></li>
+      <li class="stat"></li>
+			<!--view, edit, delete buttons-->
+			<i class="fa fa-eye"></i> <!--Show-->
+			<i class="fa fa-pencil"></i> <!--Edit-->
+			<i class="fa fa-trash-o"></i> <!--Delete-->
+  	</ul>
+
+  </script>
 
 
-<script type='text/template' id="activity-detail">
-<!--GET	/activities/{id}-->
+  <!-- Activity Details Template -->
+
+  <script type='text/template' id="activity-details">
+    <!--GET	/activities/{id}-->
     <h4>Activity: <!--template for activity--> </h4>
     <h5>Description: <!--template for description--> </h5>
     <h6>My Successes: <!--template for tracking stats --></h6>
-</script>
-  
-<!--PUT	/activities/{id} -->  <!--doesn't allow to change tracked data-->
-<script type='text/template' id="edit-activity"> 
+
+  </script>
+
+
+  <!-- Activity Edit Template -->
+
+    <!--PUT	/activities/{id} -->  <!--doesn't allow to change tracked data-->
+  <script type='text/template' id="activity-edit">
+
     <form class="edit-activity-form"> <!--should this class stay "new-activity-form"?-->
-		<label>Activity:</label><input type="textbox" class="activity">
-	    <label>Description:</label><input type="textbox" class="description">
 
-		<button type="submit" class="edit-button">Save My Changes</button>
-	</form>
+  		<label>Activity:</label><input type="textbox" class="activity">
+  	  <label>Description:</label><input type="textbox" class="description">
 
-<!--POST or PUT	/activities/{id}/stats-->
+  		<button type="submit" class="edit-button">Save My Changes</button>
 
-	<div class="add-stat">
-	    <form class="add-stat-form">
-			<!-- here: dropdown bar of activities already created? -->
-			<label>Date:</label>date picker here? <input type="textbox" class="date">
-			<!--what fields here? (distance, # steps, calories, ??)	-->
-	
-			<button type="submit" class="add-stat-button">Add It!</button>
-		</form>
-	</div>
-</script>
+  	</form>
 
-<script src="{% static 'js/main.js' %}"></script>
+    <!--POST or PUT	/activities/{id}/stats-->
+
+    <div class="add-stat">
+
+      <form class="add-stat-form">
+        <!-- here: dropdown bar of activities already created? -->
+        <label>Date:</label>date picker here? <input type="textbox" class="date">
+        <!--what fields here? (distance, # steps, calories, ??)	-->
+
+        <button type="submit" class="add-stat-button">Add It!</button>
+
+      </form>
+
+    </div>
+
+  </script>
+
+  <script src="{% static 'js/bower_components/jquery/dist/jquery.min.js' %}"></script>
+  <script src="{% static 'js/bower_components/underscore/underscore-min.js' %}"></script>
+  <script src="{% static 'js/bower_components/backbone/backbone-min.js' %}"></script>
+
+  <script src="{% static 'js/main.js' %}"></script>
+  <script src="{% static 'js/app.js' %}"></script>
+  <script src="{% static 'js/router/router.js' %}"></script>
+  <script src="{% static 'js/controllers/activities_list.js' %}"></script>
+  <script src="{% static 'js/controllers/activity_details.js' %}"></script>
+  <script src="{% static 'js/controllers/activity_edit.js' %}"></script>
+  <script src="{% static 'js/controllers/login.js' %}"></script>
+  <script src="{% static 'js/controllers/registration.js' %}"></script>
+  <script src="{% static 'js/init.js' %}"></script>
+
 </body>
 
 </html>
