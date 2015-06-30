@@ -21,7 +21,7 @@ header {
   height: 100%;
   margin: 4em auto;
   padding: 1.5em 2em;
-  background-color: #EEE; 
+  background-color: #EEE;
   color: #524D6E;
   border: 0.1em solid #524D6E;
 }
@@ -55,7 +55,7 @@ input:focus, button:focus {
 button {
   display: block;
   background-color: #F5F7F8;
-  color: #524D6E; 
+  color: #524D6E;
   border: 0.15em solid #524D6E;
   border-radius: 0;
   padding: 1em;
@@ -66,5 +66,4 @@ button {
 button:hover {
   background-color: #524D6E;
   color: #F5F7F8;
-}
 }

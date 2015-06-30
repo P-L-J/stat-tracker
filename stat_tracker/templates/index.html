@@ -27,6 +27,7 @@
   <script type='text/template' id="registration">
   	<div class="container">
   		<h2 class="container-title">Registration</h2>
+
   		<form class="registration-form">
 
   			<label>Username:</label><input type="textbox" class="username">
@@ -36,6 +37,7 @@
   			<button type="submit" class="registration-button">Register</button>
 
   		</form>
+
   	</div>
   </script>
 
@@ -44,14 +46,17 @@
 
   <script type='text/template' id="login">
   	<div class="container">
+
   		<form class="login-form">
 
   			<label>Username:</label><input type="textbox" class="username">
   		  <label>Password:</label><input type="textbox" class="password">
 
   			<button type="submit" class="login-button">Login</button>
+        <button type="submit" class="register-button">Register</button>
 
   		</form>
+
   	</div>
   </script>
 
@@ -64,10 +69,9 @@
 
   		<form class="new-activity-form">
 
-  			<label>Activity:</label><input type="textbox" class="activity">
-  		  <label>Description:</label><input type="textbox" class="description">
+  			<label>Activity:</label><input type="textbox" class="activity" required>
 
-  			<button type="submit" class="new-activity-button">Add Activity!</button>
+  			<button class="new-activity-button">Add Activity!</button>
 
   		</form>
 
@@ -75,15 +79,15 @@
 
   	<!--GET	/activities-->
   	<ul class="activities-list">
+      <% m.results.forEach(function(activity) { %>
       <!--templates-->
-      <li class="activity"></li>
-      <li class="description"></li>
-      <li class="date"></li>
-      <li class="stat"></li>
+      <li class="activity"><a href="#activities/<%- activity.id %>"><%- activity.title %></a></li>
 			<!--view, edit, delete buttons-->
-			<i class="fa fa-eye"></i> <!--Show-->
-			<i class="fa fa-pencil"></i> <!--Edit-->
+			 <!--Show-->
+			<a href="#activities/<%- activity.id %>/edit"><i class="fa fa-pencil"></i></a> <!--Edit-->
 			<i class="fa fa-trash-o"></i> <!--Delete-->
+
+      <% }) %>
   	</ul>
 
   </script>
@@ -93,9 +97,23 @@
 
   <script type='text/template' id="activity-details">
     <!--GET	/activities/{id}-->
-    <h4>Activity: <!--template for activity--> </h4>
-    <h5>Description: <!--template for description--> </h5>
-    <h6>My Successes: <!--template for tracking stats --></h6>
+
+    <h4>Activity: <%- m.title %> </h4>
+    <h6>My Successes:</h6>
+    <table>
+      <tr>
+        <th>Date</th>
+        <th>Value</th>
+      </tr>
+      <% m.stat_set.forEach(function(stat) { %>
+      <tr>
+        <td class="date"><%- stat.date %></td>
+        <td class="stat"><%- stat.value %></td>
+      </tr>
+      <% }) %>
+    </table>
+
+    <!-- GRAPHS AND GRAPHS AND LOTS OF GRAPHS -->
 
   </script>
 
