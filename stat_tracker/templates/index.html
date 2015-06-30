@@ -8,49 +8,51 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+  <link href="{% static 'http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' %}">
   <link rel="stylesheet" href="{% static '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' %}">
 </head>
 
 <body>
 
-<header>
-  <h1>Activity Tracker</h1>
-</header>
+  <header>
+    <h1 class="page-title">Activity Tracker</h1>
+  </header>
 
-<main class="main-content"></main>
-
+  <main class="main-content"></main>
 
   <!-- Registration Template -->
 
   <script type='text/template' id="registration">
+  	<div class="container">
+  		<h2 class="container-title">Registration</h2>
+  		<form class="registration-form">
 
-  	<form class="registration-form">
+  			<label>Username:</label><input type="textbox" class="username">
+  		  <label>Password:</label><input type="textbox" class="password">
+  	  	<label>Confirm Password:</label><input type="textbox" class="confirm-password">
 
-  		<label>Username:</label><input type="textbox" class="username">
-	    <label>Password:</label><input type="textbox" class="password">
-    	<label>Confirm Password:</label><input type="textbox" class="confirm-password">
+  			<button type="submit" class="registration-button">Register</button>
 
-  		<button type="submit" class="registration-button">Register</button>
-
-  	</form>
-
+  		</form>
+  	</div>
   </script>
 
 
   <!-- Login Template -->
 
   <script type='text/template' id="login">
+  	<div class="container">
+  		<form class="login-form">
 
-  	<form class="login-form">
+  			<label>Username:</label><input type="textbox" class="username">
+  		  <label>Password:</label><input type="textbox" class="password">
 
-  		<label>Username:</label><input type="textbox" class="username">
-  	  <label>Password:</label><input type="textbox" class="password">
+  			<button type="submit" class="login-button">Login</button>
 
-  		<button type="submit" class="login-button">Login</button>
-
-  	</form>
-
+  		</form>
+  	</div>
   </script>
 
 
@@ -58,14 +60,18 @@
 
   <script type='text/template' id="activities-list">
   	<!--POST	/activities-->
-    <form class="new-activity-form">
+    <div class="container">
 
-  		<label>Activity:</label><input type="textbox" class="activity">
-  	  <label>Description:</label><input type="textbox" class="description">
+  		<form class="new-activity-form">
 
-  		<button type="submit" class="new-activity-button">Add Activity!</button>
+  			<label>Activity:</label><input type="textbox" class="activity">
+  		  <label>Description:</label><input type="textbox" class="description">
 
-  	</form>
+  			<button type="submit" class="new-activity-button">Add Activity!</button>
+
+  		</form>
+
+  	</div>
 
   	<!--GET	/activities-->
   	<ul class="activities-list">
@@ -107,6 +113,21 @@
   		<button type="submit" class="edit-button">Save My Changes</button>
 
   	</form>
+
+    <!--POST or PUT	/activities/{id}/stats-->
+
+    <div class="add-stat">
+
+      <form class="add-stat-form">
+        <!-- here: dropdown bar of activities already created? -->
+        <label>Date:</label>date picker here? <input type="textbox" class="date">
+        <!--what fields here? (distance, # steps, calories, ??)	-->
+
+        <button type="submit" class="add-stat-button">Add It!</button>
+
+      </form>
+
+    </div>
 
   </script>
 
