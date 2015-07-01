@@ -85,8 +85,8 @@
   	<ul class="activities-list">
       <% m.results.forEach(function(activity) { %>
       <!--templates-->
-        <a href="#activities/<%- activity.id %>/edit"><i class="fa fa-pencil"></i></a> <!--Edit-->
-        <i class="fa fa-trash-o"></i> <!--Delete-->
+        <a href="#activities/<%- activity.id %>/edit"><i class="fa fa-pencil edit"></i></a> <!--Edit-->
+        <i class="fa fa-trash-o delete"></i> <!--Delete-->
         <li class="activity"><a href="#activities/<%- activity.id %>"><%- activity.title %></a></li>
       <% }) %>
   	</ul>
@@ -110,12 +110,15 @@
         <tr>
           <td class="date"><%- stat.date %></td>
           <td class="stat"><%- stat.value %></td>
+          <td class="delete-stat"><i class="fa fa-trash-o"></i></td>
         </tr>
         <% }) %>
       </table>
     </div>
     
+    <div class="graph-container">
     <svg id="graph"></svg>
+    </div>
 
     <!-- GRAPHS AND GRAPHS AND LOTS OF GRAPHS -->
 

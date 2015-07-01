@@ -1,22 +1,25 @@
 svg {
   width: 1000px;
   height: 500px;
-  border: 1px solid lightgrey;
-  font-family: sans-serif;
+  border: 1px solid #524D6E;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 200;
   font-size: 12px;
+  margin-left: 12em;
+  margin-bottom: 5em;
+  box-shadow: 0 0 0.7em #ABA1A0;
 }
 
 path {
-  stroke: black;
+  stroke: #524D6E;
   fill: none;
 }
 
 .tick {
-  stroke: black;
+  stroke: #524D6E;
 }
 
 circle {
-  stroke: darkblue;
-  fill: lightblue;
+  stroke: #524D6E;
+  fill: #6ED7E9;
 }
