@@ -1,13 +1,20 @@
-app.router.route('', 'login', function () {
-  console.log("Login Page");
+(function() {
 
-  app.show('login');
+  app.router.route('', loginController);
 
-  $(".login-button").on('click', function() {
-    app.goto('activities');
-  });
+  app.router.route('login', loginController);
 
-  $(".register-button").on('click', function() {
-    app.goto('registration');
-  });
-});
+  function loginController() {
+
+    app.show('login');
+
+    $(".login-button").on('click', function() {
+      app.goto('activities');
+    });
+
+    $(".register-button").on('click', function() {
+      app.goto('registration');
+    });
+  }
+
+})();
