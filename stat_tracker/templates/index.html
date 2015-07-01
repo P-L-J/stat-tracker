@@ -10,11 +10,11 @@
 
   <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
   <link rel="stylesheet" href="{% static 'css/main.css' %}" />
-  <link href="{% static 'http://fonts.googleapis.com/css?family=McLaren' rel='stylesheet' type='text/css' %}">
+  <link rel="stylesheet" href="{% static 'css/graph.css' %}" />
   <link href="{% static 'http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' %}">
   <link rel="stylesheet" href="{% static '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' %}">
-  <link rel= "stylesheet" href="{% static 'js/bower_components/pickadate.js-3.5.6/lib/compressed/themes/default.css' %}">
-  <link rel="stylesheet" href="{% static 'js/bower_components/pickadate.js-3.5.6/lib/compressed/themes/default.date.css' %}">-->
+  <link rel="stylesheet" href="{% static 'js/bower_components/pickadate/lib/compressed/themes/default.css' %}">
+  <link rel="stylesheet" href="{% static 'js/bower_components/pickadate/lib/compressed/themes/default.date.css' %}">
 
 </head>
 
@@ -113,7 +113,9 @@
         </tr>
         <% }) %>
       </table>
-    </div>  
+    </div>
+    
+    <svg id="graph"></svg>
 
     <!-- GRAPHS AND GRAPHS AND LOTS OF GRAPHS -->
 
@@ -139,8 +141,7 @@
 
       <form class="add-stat-form">
         <!-- here: dropdown bar of activities already created? -->
-        <label>Date:</label>
-        <!--date picker here?--> <input type="textbox" class="date">
+        <label>Date:</label><input type="textbox" class="date">
         <!--what fields here? (distance, # steps, calories, ??)	-->
 
         <button type="submit" class="add-stat-button">Add It!</button>
@@ -154,12 +155,14 @@
   <script src="{% static 'js/bower_components/jquery/dist/jquery.min.js' %}"></script>
   <script src="{% static 'js/bower_components/underscore/underscore-min.js' %}"></script>
   <script src="{% static 'js/bower_components/backbone/backbone-min.js' %}"></script>
-  <!--<script src="js/pickadate.js-3.5.6/lib/picker.js"></script>
-  <script src="js/pickadate.js-3.5.6/lib/picker.date.js"></script>-->
+  <script src="{% static 'js/bower_components/d3/d3.min.js' %}"></script>
+  <script src="{% static 'js/bower_components/pickadate/lib/compressed/picker.js' %}"></script>
+  <script src="{% static 'js/bower_components/pickadate/lib/compressed/picker.date.js' %}"></script>
 
   <script src="{% static 'js/main.js' %}"></script>
   <script src="{% static 'js/app.js' %}"></script>
   <script src="{% static 'js/router/router.js' %}"></script>
+  <script src="{% static 'js/graph.js' %}"></script>
   <script src="{% static 'js/controllers/activities_list.js' %}"></script>
   <script src="{% static 'js/controllers/activity_details.js' %}"></script>
   <script src="{% static 'js/controllers/activity_edit.js' %}"></script>
